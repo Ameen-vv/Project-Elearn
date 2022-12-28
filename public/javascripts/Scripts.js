@@ -1,4 +1,4 @@
-const { get } = require("mongoose")
+// const { get } = require("mongoose")
 
 
 // const Swal = require('sweetalert2')
@@ -49,7 +49,8 @@ function deleteCartItem(proId){
 $('#checkoutForm').submit((e)=>{
     e.preventDefault()
     $.ajax({
-        url:'placeorder',
+
+        url:'/placeorder',
         method:'post',
         data:$('#checkoutForm').serialize(),
         success:(response)=>{
@@ -239,5 +240,22 @@ function changeProfile(){
     button.style.display='none'
     form.style.display='block'
 }
-
+// $('#resetOtp').submit((e)=>{
+//     e.preventDefault()
+//     console.log('test');
+//     $.ajax({
+//         url:'/forgotPassOtp',
+//         method:'post',
+//         data:$('#resetOtp').serializeArray(),
+//         success:(response)=>{
+//             console.log(response);
+//             if(response.status){
+//                 document.getElementById('resetOtp').style.display='none'
+//                 document.getElementById('resetPass').style.display='block'
+//             }else{
+//                 document.getElementById('errMsg').style.display='block'
+//             }
+//         }
+//     })
+// })
 

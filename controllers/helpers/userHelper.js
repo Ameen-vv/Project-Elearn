@@ -254,6 +254,7 @@ module.exports = {
     },
     placeOrder: (order) => {
         return new Promise(async (resolve, reject) => {
+            console.log('start');
             let checkout = {}
             let cartData = await cartModel.findOne({ user: ObjectId(order.userId) })
             let productList = cartData.products.slice()
@@ -518,6 +519,64 @@ module.exports = {
                 newProfile.save().then(()=>{
                     resolve()
                 })
+            }
+        })
+    },
+    changePass:(userEmail)=>{
+        return new Promise(async(resolve,reject)=>{
+            let response={}
+            let userCheck=await user.findOne({email:userEmail})
+
+            if(userCheck){
+                mailOptions = {
+                    to: userEmail,
+                    subject: "Otp for registration is: ",
+                    html: "<h3>OTP for account verification is </h3>" + "<h1 style='font-weight:bold;'>" + otp + "</h1>" // html body
+                }
+                transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        console.log(error);
+                    }
+                    console.log("msg sent");
+                })
+                response.status=true
+                response.user=userEmail
+                resolve(response)
+            }else{
+                response.userErr=true
+                resolve(response)
+            }
+        })
+    },
+    resetPassOtp:(userOtp)=>{
+        let response={}
+        return new Promise((resolve,reject)=>{
+            if(userOtp==otp){
+                response.status=true
+                resolve(response)
+            }else{
+                response.status=false
+                resolve(response)
+            }
+            console.log(response )
+        })
+
+    },
+    doChangePass:(data)=>{
+        return new Promise(async(resolve,reject)=>{
+           let response={}
+            let newPass=await bcrypt.hash(data.password, 10)
+            let userDetails=await user.findOne({email:data.email})
+            if(userDetails){
+                await user.findOneAndUpdate({email:data.email},{$set:{password:newPass}}).then(()=>{
+                    response.status=true
+                    resolve(response)
+
+                })
+                
+            }else{
+                response.status=false
+                resolve(response)
             }
         })
     }

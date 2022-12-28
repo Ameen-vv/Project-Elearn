@@ -16,6 +16,7 @@ const languageModel= require('../model/languageSchema')
 const profilePicModel=require('../model/profilePicModel')
 
 
+
 module.exports = {
 
     signUP: (req, res) => {
@@ -37,7 +38,7 @@ module.exports = {
         if (req.session.loggedIn) {
             res.redirect('/')
         } else {
-            res.render('user/signin', { err: false, blocked: false })
+            res.render('user/signin', { err: false, blocked: false ,forgot:false})
         }
     },
     signupView: (req, res) => {
@@ -56,12 +57,12 @@ module.exports = {
                 //   res.render('user/user',{logged})
                 res.redirect('/')
             } else if (response.blocked) {
-                res.render('user/signin', { blocked: true, err: false })
+                res.render('user/signin', { blocked: true, err: false,forgot:true })
             }
             else {
                 req.session.loggedIn = false
                 req.session.logError = true
-                res.render('user/signin', { err: true, blocked: false })
+                res.render('user/signin', { err: true, blocked: false,forgot:true })
             }
         })
     },
@@ -365,6 +366,44 @@ module.exports = {
     let userId=req.session.userId
     userHelper.profilePicChange(image,userId).then(()=>{
         res.redirect('/profile')
+    })
+  },
+  forgotPass:(req,res)=>{
+    res.render('user/forgot-password',{err:false})
+  },
+  resetPassOtp:(req,res)=>{
+    let email=req.body.email
+    userHelper.changePass(email).then((response)=>{
+        if(response.status){
+            res.render('user/resetPassOtp',{email,err:false})
+        }else if(response.userErr){
+            res.render('user/forgot-password',{err:true})
+        }
+    })
+  },
+  resetVerifyOtp:(req,res)=>{
+    let userOtp=req.body.otp
+    let email=req.body.email
+    console.log(userOtp);
+    userHelper.resetPassOtp(userOtp).then((response)=>{
+        if(response.status){
+            res.render('user/resetPass',{email,err:true})
+        }else{
+            res.render('user/resetPassOtp',{email,err:true})
+        }
+
+    })
+
+  },
+  changePass:(req,res)=>{
+    let data=req.body
+    userHelper.doChangePass(data).then((response)=>{
+        if(response.status){
+            res.render('user/signin',{blocked: false, err: false,forgot:true})
+        }else{
+            res.send('error')
+        }
+
     })
   }
  

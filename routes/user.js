@@ -22,7 +22,19 @@ router.route('/signup')
 
 router.route('/editProfile')
       .get(userSession.userSession,userBlock.userBlocked,userController.editProfilePage)
-      .post(userSession.userSession,userBlock.userBlocked,userController.editProfile)      
+      .post(userSession.userSession,userBlock.userBlocked,userController.editProfile)    
+      
+router.route('/forgot-pass')
+      .get(userController.forgotPass)
+      .post(userController.resetPassOtp)
+
+router.post('/forgotPassOtp',userController.resetVerifyOtp)
+router.post('/changePass',userController.changePass)
+
+
+
+
+      
       
 
 //-----------------GET----------------------------------------------------------------------
@@ -47,29 +59,11 @@ router.get('/viewproducts/filterLanguage/:id',userSession.userSession,userBlock.
 router.get('/profile',userSession.userSession,userBlock.userBlocked,userController.userProfile)
 router.get('/mycourses',userSession.userSession,userBlock.userBlocked,userController.userCourses)
 router.get('/playVideo/:id/:video',userController.playCourse)
-router.route('/test/:no')
-      .get(userController.test)
-router.route('/test')
-      .get(userController.test1)
-      
-      // .post((req,res)=>{
-      //       console.log(req.files)
-      //       console.log(req.files.video); let video=req.files.video
-      //       // console.log(req.files.video[0].path);
-      //       var up_options = {resource_type: "video", 
-      //       eager: [
-      //       { streaming_profile: "full_hd", format: "m3u8" }],                                   
-      //       eager_async: true,
-      //       eager_notification_url: "https://mysite.example.com/notify_endpoint",
-      //       public_id: video[0].flename};
-      //       cloudinary.uploader
-      //       .upload(video[0].path, up_options)
-      //       .then(result=>console.log(result));
-      //             res.redirect('/test')
-      // })
 
 
-   
+
+
+
 //-----------------------POST----------------------------------------
 
 router.post('/verifyotp',userController.verifyOtp)
