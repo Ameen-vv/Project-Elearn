@@ -1,0 +1,93 @@
+<%-include('../admin/layout/admin-head.ejs') -%>
+            <!-- Navbar End -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">Add product</h6>
+                            <form method="post" action="/admin/editproduct/<%=products._id%>" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Course name</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp" name="name" value="<%=products.courseName%>" required>
+
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Price</label>
+                                    <input type="number" class="form-control" id="exampleInputPassword1" name="price" value="<%=products.price%>" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Category</label>
+                                    <select name="category" id="" class="group input-group form-control"  >
+                                    <option value="" disabled selected><%=products.category.name%></option>    
+                                    <% categories.forEach(function(categories,index){%>
+                                        <option value="<%=categories._id%>">
+                                            <%=categories.name%>
+                                        </option>
+                                        <%})%>
+                                    </select>
+                                    
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">description</label>
+                                    <input type="text" class="form-control" id="" name="description" value="<%=products.description%>" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Language</label>
+                                    <select name="language" id="" class="group input-group form-control" >
+                                        <option value="" disabled selected><%=products.language.language%></option>
+                                        <% languages.forEach(function(languages,index){%>
+                                            <option value="<%=languages._id%>">
+                                                <%=languages.language%>
+                                            </option>
+                                            <%})%>
+
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Hours</label>
+                                    <input type="number" class="form-control" id="" name="hours" value="<%=products.hours%>" required>
+                                </div>
+                                <!-- <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">To Learn (seperate points with '*')</label>
+                                    <input type="text" class="form-control" id="" name="learn" value="<%=products.toLearn%>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Requirements (seperate points with '*')</label>
+                                    <input type="text" class="form-control" id="" name="requirements" value="<%=products.requirements%>">
+                                </div> -->
+                                <div class="form-group">
+                                    <img src="/assets/images/thumbnails/<%=products.imageUrl%>" alt="" style="width: 300px ; height: 160px ;">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Thumbnail</label>
+                                    <input type="file" class="form-control" id="" name="image">
+                                </div>
+                                <div class="mb-3" id="videoInput">
+                                    <label class="form-label">Videos</label>
+                                    <input type="file" class="form-control" id="" name="video"  accept="video/*" multiple>
+                                </div>
+                                <button class="btn btn-success float-end " type="button" onclick="addMore()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                <script>
+                                    function addMore(){
+                                       let mainDiv=document.getElementById('videoInput')
+                                       let newInput=document.createElement('div')
+                                       newInput.innerHTML='<input type="file" class="form-control mt-3" id="" name="video"  accept="video/*" >'
+                                       mainDiv.appendChild(newInput)
+                                    }
+                                </script>
+
+                                
+                                <!-- <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div> -->
+                                <button type="submit" class="btn btn-primary mt-5">Update</button>
+                            
+                            </form>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        
+ <%-include('../admin/layout/admin-foot.ejs') -%>

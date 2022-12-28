@@ -1,0 +1,254 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.header-logo {
+    background-image: url('../assets/images/e-learn-high-resolution-logo-color-on-transparent-background\ \(2\).png');
+    background-size: cover;
+    text-align: center;
+    height: 10vh;
+}
+
+.header-main {
+    height: 10vh;
+    width: 100%;
+    background-color: white;
+}
+
+.sign-up-body {
+
+    background-color: white;
+    height: 100%;
+}
+
+.card.sign-up-card {
+    background-color: #162447;
+    color: white;
+    font-weight: 400;
+}
+
+.btn.sign-button {
+    background-color: #00B2FF;
+    color: white;
+    border-radius: 5rem;
+    font-size: 1.2rem
+}
+
+.header-line {
+    margin: 0;
+}
+
+.sign-button :hover {
+    background-color: #ffff;
+}
+
+.resend-otp {
+    background-color: transparent;
+    color: white;
+    border: none;
+    text-decoration: underline;
+}
+
+.course_description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.course-1 {
+    float: left;
+}
+
+.tolearn {
+
+    width: 70%;
+    border: 1px solid #d1d7dc;
+    /* border-style:outset; */
+    /* padding: 2.4rem; */
+}
+
+.tolearnlist {
+    display: inline;
+}
+
+.tolearnlist-item {
+    width: 45%;
+    font-size: 13px;
+    display: inline-flex;
+    /* margin-top: 5px; */
+}
+.tolearn-head{
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 1025px) {
+    .tolearnlist-item {
+        width: 100%;
+        font-size: 13px;
+        display: inline-flex;
+    }
+
+    .tolearn {
+        width: 100%;
+        border: 1px solid #d1d7dc;
+        /* border-style:outset; */
+        padding: 2.4rem;
+    }
+    .course-heading{
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -.02rem;
+        font-size: 23px !important;
+    }
+    .search_div{
+        display: none;
+    }
+}
+.course-heading{
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -.02rem;
+    font-size: 2rem;
+}
+.description{
+    width: 92%;
+}
+/* .whishlist-button{
+
+} */
+.buy-button{
+    background-color: #00B2FF;
+    position: relative;
+    /* padding-left: 25px; */
+    /* padding-right: 77px; */
+    line-height: 37px;
+    font-size: 10px;
+    font-weight: 500;
+    text-align: center;
+    width: 12rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    float: left;
+}
+.buy-button:hover{
+    background-color: #162447;
+}
+.whislist-icon{
+    float: left;
+    border-style: outset;
+    border-width: 1px;
+    width: 2.5rem;
+    height: 35px;
+    text-align: center;
+
+}
+.heart-icon{
+    font-size: 17px;
+    margin-top: 22%;
+
+}
+.hours{
+    font-size: 12px;
+}
+.cart{
+    font-size: 15px;
+}
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #ffff;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+   
+    }
+.whishlist-button{
+    height: 37px;
+    background-color:red;
+}
+.form-check-label {
+    padding-left: 0.25rem;
+    margin-bottom: 0;
+}
+.form-check-input {
+    position: absolute;
+    margin-top: 0.25rem;
+    margin-left: -11px;
+}
+.sortMenu{
+    color: black;
+    font-size: 12px;
+}
+.slide_logo{
+    height: 7rem;
+    width: 8rem !important;
+}
+body{margin-top:20px;
+    background-color:#f2f6fc;
+    color:#69707a;
+    }
+    .img-account-profile {
+        height: 10rem;
+    }
+    .rounded-circle {
+        border-radius: 50% !important;
+    }
+    .card {
+        box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+    }
+    .card .card-header {
+        font-weight: 500;
+    }
+    .card-header:first-child {
+        border-radius: 0.35rem 0.35rem 0 0;
+    }
+    .card-header {
+        padding: 1rem 1.35rem;
+        margin-bottom: 0;
+        background-color: rgba(33, 40, 50, 0.03);
+        border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+    }
+    .form-control, .dataTable-input {
+        display: block;
+        width: 100%;
+        padding: 0.875rem 1.125rem;
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1;
+        color: #69707a;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #c5ccd6;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.35rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+    
+    .nav-borders .nav-link.active {
+        color: #0061f2;
+        border-bottom-color: #0061f2;
+    }
+    .nav-borders .nav-link {
+        color: #69707a;
+        border-bottom-width: 0.125rem;
+        border-bottom-style: solid;
+        border-bottom-color: transparent;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .new_search{
+        height: 10px;
+    }
+    
+    
+     

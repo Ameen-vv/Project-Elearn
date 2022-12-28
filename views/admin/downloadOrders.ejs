@@ -1,0 +1,40 @@
+<table class="table bg-light" id="order-table" style="width:100% ;  border: 1px solid black;">
+    <thead>
+        <tr style="border: 1px solid black;">
+            <th scope="col" style="border: 1px solid black;">#</th>
+            <th scope="col" style="border: 1px solid black;">OrderId</th>
+            <th scope="col" style="border: 1px solid black;">User</th>
+            <th scope="col" style="border: 1px solid black;">payment Status</th>
+            <th scope="col" style="border: 1px solid black;">products</th>
+            <th scope="col" style="border: 1px solid black;">total</th>
+            <th scope="col" style="border: 1px solid black;">Date</th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <%orders.forEach(function(order,index){%>
+            <tr style="border: 1px solid black;">
+                <th scope="row" style="border: 1px solid black;"><%=index+1%></th>
+                <td style="border: 1px solid black;"><%=order._id%></td>
+                <td style="border: 1px solid black;"><%=order.user.email%></td>
+                <td style="border: 1px solid black;"><%=order.paymentStatus%></td>
+                <td style="border: 1px solid black;">
+                    <ul>
+                        <%order.products.forEach(function(product){%>
+                            <li><%=product.courseName%></li>    
+                        <%})%>
+                        
+                    </ul>
+                </td>
+                <td style="border: 1px solid black;"><%=order.total%></td>
+                <td style="width:60px; border: 1px solid black; "><%=order.date%></td>
+
+                
+            </tr>
+            <%})%>
+      
+        
+    </tbody>
+</table>

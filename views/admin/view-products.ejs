@@ -1,0 +1,100 @@
+<%-include('../admin/layout/admin-head.ejs') -%>
+
+
+            <!-- Navbar End -->
+
+
+            <!-- Table Start -->
+            <div class="table-responsive">
+          
+            <div class="container-fluid pt-4 px-4">
+                
+                <div class="row ">
+                    <div class="col-sm-12 col-xl-12 ">
+                        <div class=" rounded h-100 p-4">
+                            <h6 class="mb-4">Products</h6>
+                            <table class="table bg-light">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Hours</th>
+                                        <th scope="col">Language</th>
+                                        <th scope="col">Listed</th>                                        
+                                        <!-- <th scope="col">description</th>
+                                        <th scope="col">Videos</th> -->
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Dlt/Edit</th>
+
+                                    </tr>
+                                    
+                                        
+                                    
+                                </thead>
+                                <tbody>
+                                    <% products.forEach(function(products,index){%>
+                                        <tr>
+                                            <th scope="row"><%=index+1%></th>
+                                            <td><%=products.courseName%></td>
+                                            <td><%=products.category.name%></td>
+                                            <td><%=products.price%></td>
+                                            <td><%=products.hours%></td>
+                                            <td><%=products.language.language %></td>
+                                            <td><%=products.listed %></td>
+                                            <td><img src='/assets/images/thumbnails/<%=products.imageUrl%>' alt="" style="height: 50px; width: 60px;"></td>
+                                            <td><a class="btn btn-dark" href="/admin/editproduct/<%=products._id%>" role="button" style="width: 50px;"><i class="bi bi-pen-fill"></i></a> <br><br>
+                                                <%if(products.listed){%>
+                                                    <form action="/admin/unlistproduct/<%=products._id%>" method="post">
+                                                        <button type="submit" class="btn  btn-danger" style="width: 50px;"
+                                                            onclick="return confirm('Are you sure you want to delete ?')"><i class="bi bi-clipboard-x"></i></button>
+                                                    </form>    
+                                                <%}else{%> 
+                                                    <form action="/admin/listproduct/<%=products._id%>" method="post">
+                                                    <button type="submit" class="btn  btn-success" style="width: 50px;"><i class="bi bi-clipboard-check"></i></button>
+                                                </form><%}%>
+                                            </td>
+                                            <!-- <td></td>
+                                            <td></td> -->
+                                            
+                                            
+                                        </tr>
+                                        <%})%>
+                                  
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+            <!-- Table End -->
+
+        </div>
+        <!-- Content End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../admin-panel/lib/chart/chart.min.js"></script>
+    <script src="../admin-panel/lib/easing/easing.min.js"></script>
+    <script src="../admin-panel/lib/waypoints/waypoints.min.js"></script>
+    <script src="../admin-panel/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../admin-panel/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="../admin-panel/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="../admin-panel/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../admin-panel/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+<%-include('../user/layout/user-head.ejs')%>
+
+
+    <!-- <div class="home">
+    
+    <div class="home_background parallax_background parallax-window" data-parallax="scroll" data-image-src="/homeview/images/courses.jpg" data-speed="0.8"></div>
+    <div class="home_container">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="home_content text-center">
+                        <div class="home_title">About us</div>
+                        <div class="breadcrumbs">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li>About us</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+    <!-- Courses -->
+
+    <div class="courses">
+
+        <div class="container">
+            <div class="btn-group dropright">
+
+                <button type="button" class="btn bg-transparent  dropdown-toggle-split" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i style="font-size:15px" class="fa fa-sort"></i>
+                </button>
+                <div class="dropdown-menu pl-3" style="font-size: 12px;">
+                    <!-- Dropdown menu links -->
+
+                    <a href="/viewproducts/sort/priceHightoLow" class="sortMenu">Price--High to Low</a>
+                       <a href="/viewproducts/sort/priceLowtoHigh" class="sortMenu">Price--Low to High</a>
+                       <a href="/viewproducts/sort/newest" class="sortMenu">Newest First</a>
+
+
+
+                </div>
+            </div>
+            <div class="btn-group dropright">
+
+                <button type="button" class="btn bg-transparent  dropdown-toggle-split" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i style="font-size:15px" class="fa fa-filter"></i>
+                </button>
+                <div class="dropdown-menu pl-3" style="font-size: 12px;">
+                    <!-- Dropdown menu links -->
+                        
+                    <h5 style="font-weight: bold;">Categories</h5>
+                    <%category.forEach(function(category){%>
+                        <a href="/viewproducts/filterCategory/<%=category._id%>" class="sortMenu"><%=category.name%></a><br>
+                    <%})%>
+                    <br><h5 style="font-weight: bold;">Languages</h5>
+                    <%language.forEach(function(language){%>
+                        <a href="/viewproducts/filterLanguage/<%=language._id%>" class="sortMenu"><%=language.language%></a><br>
+                    <%})%>
+                      
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="section_title text-center mt-3">
+                        <h2>Choose your course</h2>
+                    </div>
+                    <div class="section_subtitle">Suspendisse tincidunt magna eget massa hendrerit efficitur. Ut euismod
+                        pellentesque imperdiet. Cras laoreet gravida lectus, at viverra lorem venenatis in. Aenean id
+                        varius quam. Nullam bibendum interdum dui, ac tempor lorem convallis ut</div>
+                </div>
+            </div>
+
+            <!-- Course Search -->
+            <div class="row">
+
+                <div class="col">
+                    <div class="course_search">
+                        <form action="/search"
+                            class="course_search_form d-flex flex-md-row flex-column align-items-start justify-content-center" method="post">
+                            <div><input type="text" class="course_input" placeholder="Course" required="required"
+                                    id="myInput" name="search"></div>
+                           
+                            <button class="course_button"><span>search course</span><span class="button_arrow"><i
+                                        class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Course -->
+            <!-- <div class="row featured_row">
+            <div class="col-lg-6 featured_col">
+                <div class="featured_content">
+                    <div class="featured_header d-flex flex-row align-items-center justify-content-start">
+                        <div class="featured_tag"><a href="#">Featured</a></div>
+                        <div class="featured_price ml-auto">Price: <span>$35</span></div>
+                    </div>
+                    <div class="featured_title"><h3><a href="courses.html">Online Literature Course</a></h3></div>
+                    <div class="featured_text">Maecenas rutrum viverra sapien sed fermentum. Morbi tempor odio eget lacus tempus pulvinar. Donec vehicula efficitur nibh, in pretium nulla interdum lacus vehicula efficitur nibh, in pretiumvehicula efficitur nibh, in pretium tempus non.</div>
+                    <div class="featured_footer d-flex align-items-center justify-content-start">
+                        <div class="featured_author_image"><img src="images/featured_author.jpg" alt=""></div>
+                        <div class="featured_author_name">By <a href="#">James S. Morrison</a></div>
+                        <div class="featured_sales ml-auto"><span>352</span> Sales</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 featured_col">
+                <!-- Background image artist https://unsplash.com/@jtylernix -->
+            <!-- <div class="featured_background" style="background-image:url(images/featured.jpg)"></div>
+            </div>
+        </div>  -->
+            <div class="row courses_row" id="filterDiv">
+                <% products.forEach(function(products,index){%>
+                    <!-- Course -->
+                    <a href="/productPage/<%=products._id%>">
+                        <div class="col-sm-6 col-lg-4 col-md-4" id="filterDiv">
+                            <div class="course">
+                                <div class="course_image"><img src="/assets/images/thumbnails/<%=products.imageUrl%>"
+                                        alt=""></div>
+                                <div class="course_body">
+                                    <div class="course_header d-flex flex-row align-items-center justify-content-start">
+                                        <!-- <div class="course_tag"><a href="#">Featured</a></div> -->
+                                        
+                                            <div class="course_price ml-auto">Price: <span>₹<%=products.price%></span>
+                                            </div>
+                                            
+
+                                    </div>
+                                    <div class="course_title" id="filterHead">
+                                        <h3><a href="/productPage/<%=products._id%>">
+                                                <%=products.courseName%>
+                                            </a></h3>
+                                    </div>
+                                    <div class="course_text course_description">
+                                        <%=products.description%>
+                                    </div>
+                                    <div class="course_footer d-flex align-items-center justify-content-start">
+                                        <!-- <div class="course_author_image"><img src="images/featured_author.jpg" alt="https://unsplash.com/@anthonytran"></div>
+                            <div class="course_author_name">By <a href="#">James S. Morrison</a></div> -->
+
+                                        <!-- <div class="course_sales ml-auto"><span>352</span> Sales</div> -->
+                                        <!-- <div class="button"><a href="/add-to-cart/<%=products._id%>" class="">Add to cart</a></div> -->
+                                        
+                                        <% if(products.users.includes(user)){%>
+                                            <a href="/productPage/<%=products._id%>">click here to Learn<a>
+                                                    <%}else{%>
+                                                        <%if(cartItems?.products.includes(products._id)){%>
+                                                            <div class="button"><a class="" style="color:white ;"
+                                                                    href="/cart">Go to cart</a></div>
+                                                            <%}else{%>
+                                                                <%if(user){%>
+                                                                    
+                                                                    <div class=""><button class="button"
+                                                                        style="color:white ;"
+                                                                        onclick="addToCart('<%=products._id%>')">Add to
+                                                                        cart</button></div>
+                                                                    
+                                                                <%}else{%>
+                                                                    <a href="/signin">LogIn for More</a>    
+                                                                <%}
+                                                                %>
+                                                                
+
+                                                                <%}%>
+
+                                                                    <%if(user){%>
+                                                                        <div class="ml-2"><button class="btn btn-danger"
+                                                                            style="color:white ;"
+                                                                            onclick="addToWhishlist('<%=products._id%>')"><i
+                                                                                class="fa fa-heart"></i></button></div>    
+                                                                    <%}%>
+
+                                                                    <%} %>
+
+
+                                                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <%})%>
+
+                        <!-- Course -->
+
+
+            </div>
+
+            <!-- Pagination -->
+            
+        </div>
+    </div>
+    <%-include('../user/layout/user-foot.ejs')-%>

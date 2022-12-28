@@ -1,0 +1,67 @@
+<%-include('../user/layout/user-head.ejs')%>
+
+
+
+<div class="table-responsive ">
+    <div class="container-fluid pt-4 px-4 ">
+        <div class="row g-4 ">
+            <div class="col-sm-12 col-xl-12">
+                <div class=" rounded h-100 p-4">
+                    <h6 class="mb-4">Users</h6>
+                    <table class="table bg-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Products</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">payment Status</th>
+                                <th scope="col">Date</th>
+
+
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <%orders.forEach(function(order,index){%>
+                                <tr>
+                                    <th scope="row"><%=index+1%></th>
+                                    <td>
+                                        <ul>
+                                            <%order.products.forEach(function(product){%>
+                                                <li><a href="/productPage/<%=product._id%>"> <%=product.courseName%></a></li>    
+                                            <%})%>
+                                            
+                                        </ul>
+                                    </td>
+                                    <td>₹ <%=order.total%></td>
+                                    <td><%=order.paymentStatus%></td>
+                                    <td><%=order.date%></td>
+
+
+                                    
+                                </tr>
+                                <%})%>
+                               
+                          
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<%-include('./layout/user-foot.ejs')-%>
