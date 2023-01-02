@@ -7,7 +7,8 @@
                         <div class=" rounded h-100 p-4">
                             <h6 class="mb-4">Sales Report</h6>
                             <div class="">
-                                <a class="btn btn-success p-1 float-end" href="/admin/downloadfile/<%=fromDate%>/<%=realToDate%>">download</a>
+                                <button id="export" class="btn btn-success float-end p-1" >csv</button>
+                                <a class="btn btn-success p-1 float-end me-2" href="/admin/downloadfile/<%=fromDate%>/<%=realToDate%>">download</a>
                                 <form id="dateFilterForm" class="float-end me-2 form-horizontal" action="/admin/getOrdersbyDate" method="post">
                                     <label for="fromDate" class="">From</label>
                                     <input  id="fromDate" type="date" name="fromDate" value="<%=fromDate%>" class="">
@@ -21,6 +22,46 @@
                                 
                                 
                             </div> 
+                            <table class="table bg-light" id="order-table-1" style="display: none;">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">OrderId</th>
+                                        <th scope="col">User</th>
+                                        <th scope="col">payment Status</th>
+                                        <!-- <th scope="col">products</th> -->
+                                        <th scope="col">total</th>
+                                        <th scope="col">Date</th>
+
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%orders.forEach(function(order,index){%>
+                                        <tr>
+                                            <th scope="row"><%=index+1%></th>
+                                            <td ><%=order._id%></td>
+                                            <td><%=order.user.email%></td>
+                                            <td><%=order.paymentStatus%></td>
+                                            <!-- <td>
+                                                <ul>
+                                                    <%order.products.forEach(function(product){%>
+                                                        <li><%=product.courseName%></li>    
+                                                    <%})%>
+                                                    
+                                                </ul>
+                                            </td> -->
+                                            <td><%=order.total%></td>
+                                            <td><%=order.date%></td>
+
+                                            
+                                        </tr>
+                                        <%})%>
+                                  
+                                    
+                                </tbody>
+                            </table>
                             <table class="table bg-light" id="order-table">
                                 <thead>
                                     <tr>
@@ -104,8 +145,48 @@
 				// Choose the element and save the PDF for your user.
 				html2pdf().from(element).save();
 			}
+            const toCsv = function (table) {
+    // Query all rows
+    const rows = table.querySelectorAll('tr');
 
- </script>
+    return [].slice
+        .call(rows)
+        .map(function (row) {
+            // Query all cells
+            const cells = row.querySelectorAll('th,td');
+            return [].slice
+                .call(cells)
+                .map(function (cell) {
+                    return cell.textContent;
+                })
+                .join(',');
+        })
+        .join('\n');
+    };
+    const download = function (text, fileName) {
+    const link = document.createElement('a');
+    link.setAttribute('href', `data:text/csv;charset=utf-8,${encodeURIComponent(text)}`);
+    link.setAttribute('download', fileName);
+
+    link.style.display = 'none';
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+    };
+    const table = document.getElementById('order-table-1');
+    const exportBtn = document.getElementById('export');
+
+    exportBtn.addEventListener('click', function () {
+    // Export to csv
+    const csv = toCsv(table);
+
+    // Download it
+    download(csv, 'download.csv');
+    });
+
+    </script>
  
 
 </body>

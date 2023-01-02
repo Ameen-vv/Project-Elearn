@@ -19,6 +19,7 @@ router.get('/admin-dashboard',sessionControl.adminSession,adminController.viewDa
 router.get('/getOrdersbyDate',sessionControl.adminSession,adminController.viewOrders)
 router.get('/downloadfile/:fromDate/:toDate',adminController.downloadFile)
 router.get('/logout',adminController.logOUt)
+
 //-----------------------------------POST-----------------------------------------------------------
 router.post('/adminpanel/block/:id',sessionControl.adminSession,adminController.blockUser)
 router.post('/adminpanel/unblock/:id',sessionControl.adminSession,adminController.unblockUser)

@@ -28,14 +28,6 @@ router.route('/forgot-pass')
       .get(userController.forgotPass)
       .post(userController.resetPassOtp)
 
-router.post('/forgotPassOtp',userController.resetVerifyOtp)
-router.post('/changePass',userController.changePass)
-
-
-
-
-      
-      
 
 //-----------------GET----------------------------------------------------------------------
 router.get('/',userBlock.userBlocked,userController.homeView)
@@ -59,6 +51,7 @@ router.get('/viewproducts/filterLanguage/:id',userSession.userSession,userBlock.
 router.get('/profile',userSession.userSession,userBlock.userBlocked,userController.userProfile)
 router.get('/mycourses',userSession.userSession,userBlock.userBlocked,userController.userCourses)
 router.get('/playVideo/:id/:video',userController.playCourse)
+router.get('/logout',userController.logOut)
 
 
 
@@ -68,12 +61,13 @@ router.get('/playVideo/:id/:video',userController.playCourse)
 
 router.post('/verifyotp',userController.verifyOtp)
 router.post('/resendotp',userController.resendOtp)
-router.get('/logout',userController.logOut)
 router.post('/placeorder',userSession.userSession,userController.placeOrder)
 router.post('/verify-payment',userSession.userSession,userController.verifyPayment)
 router.post('/editUserPass',userController.resetPass)
 router.post('/search',userController.searchItems)
 router.post('/profile-pic',userController.profilePic)
+router.post('/forgotPassOtp',userController.resetVerifyOtp)
+router.post('/changePass',userController.changePass)
 
 
 

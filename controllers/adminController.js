@@ -314,7 +314,8 @@ module.exports={
         }
     })
    
-}
+},
+
     
 }
 
