@@ -50,7 +50,7 @@ router.get('/viewproducts/filterCategory/:id',userSession.userSession,userBlock.
 router.get('/viewproducts/filterLanguage/:id',userSession.userSession,userBlock.userBlocked,userController.filterProductswithLanguage)
 router.get('/profile',userSession.userSession,userBlock.userBlocked,userController.userProfile)
 router.get('/mycourses',userSession.userSession,userBlock.userBlocked,userController.userCourses)
-router.get('/playVideo/:id/:video',userController.playCourse)
+router.get('/playVideo/:id/:video',userSession.userSession,userBlock.userBlocked,userController.playCourse)
 router.get('/logout',userController.logOut)
 
 
