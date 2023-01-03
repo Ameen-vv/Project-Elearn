@@ -57,12 +57,12 @@ module.exports = {
                 //   res.render('user/user',{logged})
                 res.redirect('/')
             } else if (response.blocked) {
-                res.render('user/signin', { blocked: true, err: false,forgot:true })
+                res.render('user/signin', { blocked: true, err: false,forgot:false })
             }
             else {
                 req.session.loggedIn = false
                 req.session.logError = true
-                res.render('user/signin', { err: true, blocked: false,forgot:true })
+                res.render('user/signin', { err: true, blocked: false,forgot:false })
             }
         })
     },

@@ -23,7 +23,6 @@ router.get('/logout',adminController.logOUt)
 //-----------------------------------POST-----------------------------------------------------------
 router.post('/adminpanel/block/:id',sessionControl.adminSession,adminController.blockUser)
 router.post('/adminpanel/unblock/:id',sessionControl.adminSession,adminController.unblockUser)
-
 router.post('/signin',adminController.signIn)
 router.post('/unlistproduct/:id',sessionControl.adminSession,adminController.deleteProduct) 
 router.post('/listproduct/:id',sessionControl.adminSession,adminController.undeleteProduct)

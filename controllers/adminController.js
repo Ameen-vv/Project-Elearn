@@ -265,10 +265,19 @@ module.exports={
             }
             sum=Math.round(sum)
         }
+        let proArr=[]
+        for(let i=0;i<products.length;i++){
+            let obj={
+                course:products[i].courseName,
+                no:products[i].users.length
+            }
+            proArr.push(obj)
 
-
+        }
+        // console.log(proArr)
+        let graphArr=proArr.sort((a, b) => b.no - a.no)
         
-        res.render('admin/dashboard',{userCount,productCount,latestOrders,sum})
+        res.render('admin/dashboard',{userCount,productCount,latestOrders,sum,graphArr})
   },
   getProductsbyDate:async(req,res)=>{
     let fromDate=req.body.fromDate

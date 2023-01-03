@@ -1,61 +1,64 @@
 <%-include('../admin/layout/admin-head.ejs') -%>
 
- <div class="container-fluid pt-4 px-4">
-    <div class="row g-4">
-        <div class="col-sm-6 col-xl-3">
-            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                <div class="ms-3">
-                    <p class="mb-2">Total sales</p>
-                    <h6 class="mb-0">₹<%=sum%></h6>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fa fa-user fa-3x text-primary"></i>
-                <div class="ms-3">
-                    <p class="mb-2">Total Users</p>
-                    <h6 class="mb-0"><%=userCount%></h6>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="col-sm-6 col-xl-3">
-            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fa fa-chart-area fa-3x text-primary"></i>
-                <div class="ms-3">
-                    <p class="mb-2">Today Revenue</p>
-                    <h6 class="mb-0">$1234</h6>
-                </div>
-            </div>
-        </div> -->
-        <div class="col-sm-6 col-xl-3">
-            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fa fa-book fa-3x text-primary"></i>
-                <div class="ms-3">
-                    <p class="mb-2">Total products</p>
-                    <h6 class="mb-0"><%=productCount%></h6>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+ 
 <!-- Sale & Revenue End -->
 
 
 <!-- Sales Chart Start -->
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
-        <div class="col-sm-12 col-xl-6">
-            <div class="bg-light text-center rounded p-4">
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">Worldwide Sales</h6>
-                    <a href="">Show All</a>
+        <div class="col-xl-6">
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-center p-4">
+                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Total sales</p>
+                                <h6 class="mb-0">₹<%=sum%></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-center p-4">
+                            <i class="fa fa-user fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Total Users</p>
+                                <h6 class="mb-0"><%=userCount%></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-sm-6 col-xl-3">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Today Revenue</p>
+                                <h6 class="mb-0">$1234</h6>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="col-12">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-center p-4">
+                            <i class="fa fa-book fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Total products</p>
+                                <h6 class="mb-0"><%=productCount%></h6>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <canvas id="worldwide-sales"></canvas>
             </div>
         </div>
-        <div class="col-sm-12 col-xl-6">
+        <div class="col-sm-12 col-xl-6 pt-4">
+            <div class="bg-light text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Trending Courses</h6>
+                    
+                </div>
+                <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+            </div>
+        </div>
+        <!-- <div class="col-sm-12 col-xl-6">
             <div class="bg-light text-center rounded p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h6 class="mb-0">Salse & Revenue</h6>
@@ -63,7 +66,7 @@
                 </div>
                 <canvas id="salse-revenue"></canvas>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 <!-- Sales Chart End -->
@@ -117,7 +120,15 @@
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 </div>
+<ul style="display: none;">
+    <%for(let i=0;i<5;i++){%>
+         <li id="name-<%=i%>"><%=graphArr[i].course%></li>
+     <%}%>
+     <%for(let i=0;i<5;i++){%>
+         <li id="no-<%=i%>"><%=graphArr[i].no%></li>
+     <%}%>                    
 
+ </ul>
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -130,7 +141,47 @@
 <script src="../admin-panel/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
 <!-- Template Javascript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script src="../admin-panel/js/main.js"></script>
+<script>
+    let course1=document.getElementById('name-0').innerHTML
+    let course2=document.getElementById('name-1').innerHTML
+    let course3=document.getElementById('name-2').innerHTML
+    let course4=document.getElementById('name-3').innerHTML
+    let course5=document.getElementById('name-4').innerHTML
+    let value1=document.getElementById('no-0').innerHTML
+    let value2=document.getElementById('no-1').innerHTML
+    let value3=document.getElementById('no-2').innerHTML
+    let value4=document.getElementById('no-3').innerHTML
+    let value5=document.getElementById('no-4').innerHTML
+    console.log(course1);
+    var xValues = [course1, course2, course3, course4, course5];
+var yValues = [value1, value2,value3, value4, value5];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: false,
+      text: "World Wide Wine Production 2018"
+    }
+  }
+});
+</script>
 </body>
 
 </html>
