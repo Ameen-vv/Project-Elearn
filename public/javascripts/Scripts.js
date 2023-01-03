@@ -207,15 +207,15 @@ function movetoCartfromWish(proId){
         }
     })
 }
-$(document).ready(function(){
-    $("#myInput").on("keyup", function() {
-      var value = $(this).val().toUpperCase();
-      console.log(value);
-      $("#filterDiv").filter(function() {
-        $(this).toggle($(this).text().toUpperCase().indexOf(value) > -1)
-      });
-    });
-  });
+// $(document).ready(function(){
+//     $("#myInput").on("keyup", function() {
+//       var value = $(this).val().toUpperCase();
+//       console.log(value);
+//       $("#filterDiv").filter(function() {
+//         $(this).toggle($(this).text().toUpperCase().indexOf(value) > -1)
+//       });
+//     });
+//   });
 
  function viewForm(){
     let mainDiv=document.getElementById('formDiv')

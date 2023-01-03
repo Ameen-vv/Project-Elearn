@@ -86,7 +86,7 @@
                         <form action="/search"
                             class="course_search_form d-flex flex-md-row flex-column align-items-start justify-content-center" method="post">
                             <div><input type="text" class="course_input" placeholder="Course" required="required"
-                                    id="myInput" name="search"></div>
+                                    id="myInput2" name="search"></div>
                            
                             <button class="course_button"><span>search course</span><span class="button_arrow"><i
                                         class="fa fa-angle-right" aria-hidden="true"></i></span></button>
@@ -118,76 +118,83 @@
             </div>
         </div>  -->
             <div class="row courses_row" id="filterDiv">
-                <% products.forEach(function(products,index){%>
-                    <!-- Course -->
-                    <a href="/productPage/<%=products._id%>">
-                        <div class="col-sm-6 col-lg-4 col-md-4" id="filterDiv">
-                            <div class="course">
-                                <div class="course_image"><img src="/assets/images/thumbnails/<%=products.imageUrl%>"
-                                        alt=""></div>
-                                <div class="course_body">
-                                    <div class="course_header d-flex flex-row align-items-center justify-content-start">
-                                        <!-- <div class="course_tag"><a href="#">Featured</a></div> -->
-                                        
-                                            <div class="course_price ml-auto">Price: <span>₹<%=products.price%></span>
-                                            </div>
+                <%if(products.length==0){%>
+                    <h3>No result</h3>    
+                <%}else{%>
+                    <% products.forEach(function(products,index){%>
+                        <!-- Course -->
+                        <a href="/productPage/<%=products._id%>">
+                            <div class="col-sm-6 col-lg-4 col-md-4" id="filterDiv">
+                                <div class="course">
+                                    <div class="course_image"><img src="/assets/images/thumbnails/<%=products.imageUrl%>"
+                                            alt=""></div>
+                                    <div class="course_body">
+                                        <div class="course_header d-flex flex-row align-items-center justify-content-start">
+                                            <!-- <div class="course_tag"><a href="#">Featured</a></div> -->
                                             
-
-                                    </div>
-                                    <div class="course_title" id="filterHead">
-                                        <h3><a href="/productPage/<%=products._id%>">
-                                                <%=products.courseName%>
-                                            </a></h3>
-                                    </div>
-                                    <div class="course_text course_description">
-                                        <%=products.description%>
-                                    </div>
-                                    <div class="course_footer d-flex align-items-center justify-content-start">
-                                        <!-- <div class="course_author_image"><img src="images/featured_author.jpg" alt="https://unsplash.com/@anthonytran"></div>
-                            <div class="course_author_name">By <a href="#">James S. Morrison</a></div> -->
-
-                                        <!-- <div class="course_sales ml-auto"><span>352</span> Sales</div> -->
-                                        <!-- <div class="button"><a href="/add-to-cart/<%=products._id%>" class="">Add to cart</a></div> -->
-                                        
-                                        <% if(products.users.includes(user)){%>
-                                            <a href="/productPage/<%=products._id%>">click here to Learn<a>
-                                                    <%}else{%>
-                                                        <%if(cartItems?.products.includes(products._id)){%>
-                                                            <div class="button"><a class="" style="color:white ;"
-                                                                    href="/cart">Go to cart</a></div>
-                                                            <%}else{%>
-                                                                <%if(user){%>
-                                                                    
-                                                                    <div class=""><button class="button"
-                                                                        style="color:white ;"
-                                                                        onclick="addToCart('<%=products._id%>')">Add to
-                                                                        cart</button></div>
-                                                                    
+                                                <div class="course_price ml-auto">Price: <span>₹<%=products.price%></span>
+                                                </div>
+                                                
+    
+                                        </div>
+                                        <div class="course_title" id="filterHead">
+                                            <h3><a href="/productPage/<%=products._id%>">
+                                                    <%=products.courseName%>
+                                                </a></h3>
+                                        </div>
+                                        <div class="course_text course_description">
+                                            <%=products.description%>
+                                        </div>
+                                        <div class="course_footer d-flex align-items-center justify-content-start">
+                                            <!-- <div class="course_author_image"><img src="images/featured_author.jpg" alt="https://unsplash.com/@anthonytran"></div>
+                                <div class="course_author_name">By <a href="#">James S. Morrison</a></div> -->
+    
+                                            <!-- <div class="course_sales ml-auto"><span>352</span> Sales</div> -->
+                                            <!-- <div class="button"><a href="/add-to-cart/<%=products._id%>" class="">Add to cart</a></div> -->
+                                            
+                                            <% if(products.users.includes(user)){%>
+                                                <a href="/productPage/<%=products._id%>">click here to Learn<a>
+                                                        <%}else{%>
+                                                            <%if(cartItems?.products.includes(products._id)){%>
+                                                                <div class="button"><a class="" style="color:white ;"
+                                                                        href="/cart">Go to cart</a></div>
                                                                 <%}else{%>
-                                                                    <a href="/signin">LogIn for More</a>    
-                                                                <%}
-                                                                %>
-                                                                
-
-                                                                <%}%>
-
                                                                     <%if(user){%>
-                                                                        <div class="ml-2"><button class="btn btn-danger"
+                                                                        
+                                                                        <div class=""><button class="button"
                                                                             style="color:white ;"
-                                                                            onclick="addToWhishlist('<%=products._id%>')"><i
-                                                                                class="fa fa-heart"></i></button></div>    
+                                                                            onclick="addToCart('<%=products._id%>')">Add to
+                                                                            cart</button></div>
+                                                                        
+                                                                    <%}else{%>
+                                                                        <a href="/signin">LogIn for More</a>    
+                                                                    <%}
+                                                                    %>
+                                                                    
+    
                                                                     <%}%>
-
-                                                                    <%} %>
-
-
-                                                                        </button>
+    
+                                                                        <%if(user){%>
+                                                                            <div class="ml-2"><button class="btn btn-danger"
+                                                                                style="color:white ;"
+                                                                                onclick="addToWhishlist('<%=products._id%>')"><i
+                                                                                    class="fa fa-heart"></i></button></div>    
+                                                                        <%}%>
+    
+                                                                        <%} %>
+    
+    
+                                                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                    <%})%>
+                        </a>
+                        <%})%>
+                    
+                    
+                <%}%>
+               
 
                         <!-- Course -->
 

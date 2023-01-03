@@ -84,7 +84,7 @@
 											<ul class="main_nav">
 												<li class="active"><a href="#">home</a></li>
 												<li><a href="/viewproducts/1">courses</a></li>
-												<li><a href="about.html">about us</a></li>
+												<li><a href="/aboutus">about us</a></li>
 												<li><a href="/profile">Profile</a></li>
 												<li>
 													<div class="ml-auto "><a href="/cart"><i
@@ -162,35 +162,13 @@
 			<ul class="menu_mm">
 				<li class="menu_mm"><a href="/">Home</a></li>
 				<li class="menu_mm"><a href="/viewproducts/1">Courses</a></li>
-				<li class="menu_mm"><a href="" class="">My cart</a></li>
 				<!-- <li class="menu_mm"><a href="instructors.html">Instructors</a></li>
 				<li class="menu_mm"><a href="#">Events</a></li> -->
 				<!-- <li class="menu_mm"><a href="blog.html">Blog</a></li> -->
-				<li class="menu_mm">
-					<div class="dropdown">
-						<button class="dropdown-toggle profile-button-hum" type="button" id="dropdownMenuButton"
-							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							YOUR PROFILE
-						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item" href="/wishlist">My wishlist</a>
-							<a class="dropdown-item" href="/mycourses">my orders</a>
-							<a class="dropdown-item" href="/orders">my orders</a>
-							<a class="dropdown-item" href="/profile">View Profile</a>
-							<% if(logged){%>
-								<form action="/logout" method="post"> <button class="dropdown-item log-out"
-										type="submit">LOG OUT</button></form>
-								<%}else{%>
-									<a href="/signin" class="dropdown-item">Login</a>
-				</li>
-				<%} %>
-
-
-	</div>
-	</div>
-	</li>
-
-	</ul>
+				<li class="menu_mm"><a href="/profile">Profile</a></li>
+				 <li class="menu_mm"><a href="/cart" >My cart</a></li>
+				 <li class="menu_mm"><a href="/wishlist" >My wishlist</a></li>
+			</ul>
 	</nav>
 	<div class="menu_extra">
 		<div class="menu_phone"><span class="menu_title">phone:</span>(009) 35475 6688933 32</div>
@@ -217,7 +195,7 @@
 				<!-- Slider Item -->
 				<div class="owl-item">
 					<!-- Background image artist https://unsplash.com/@benwhitephotography -->
-					<div class="home_slider_background" style="background-image:url(../homeview/images/index.jpg)">
+					<div class="home_slider_background" style="background-image:url(/homeview/images/carousal3.jpg)">
 					</div>
 					<div class="home_container">
 						<div class="container">
@@ -233,7 +211,7 @@
 												fermentum, gravida augue ut, fermentum ipsum.</div>
 										</div>
 										<div class="home_buttons">
-											<div class="button home_button"><a href="#">learn more<div
+											<div class="button home_button"><a href="/aboutus">learn more<div
 														class="button_arrow"><i class="fa fa-angle-right"
 															aria-hidden="true"></i></div></a></div>
 											<div class="button home_button"><a href="/viewproducts/1">see all courses
@@ -250,7 +228,7 @@
 				<!-- Slider Item -->
 				<div class="owl-item">
 					<!-- Background image artist https://unsplash.com/@benwhitephotography -->
-					<div class="home_slider_background" style="background-image:url(../homeview/images/index.jpg)">
+					<div class="home_slider_background" style="background-image:url(/homeview/images/carousal4.jpg)">
 					</div>
 					<div class="home_container">
 						<div class="container">
@@ -266,7 +244,7 @@
 												fermentum, gravida augue ut, fermentum ipsum.</div>
 										</div>
 										<div class="home_buttons">
-											<div class="button home_button"><a href="#">learn more<div
+											<div class="button home_button"><a href="/aboutus">learn more<div
 														class="button_arrow"><i class="fa fa-angle-right"
 															aria-hidden="true"></i></div></a></div>
 											<div class="button home_button"><a href="#">see all courses<div
@@ -281,37 +259,7 @@
 				</div>
 
 				<!-- Slider Item -->
-				<div class="owl-item">
-					<!-- Background image artist https://unsplash.com/@benwhitephotography -->
-					<div class="home_slider_background" style="background-image:url(../homeview/images/index.jpg)">
-					</div>
-					<div class="home_container">
-						<div class="container">
-							<div class="row">
-								<div class="col">
-									<div class="home_content text-center">
-										<div class="home_logo"><img src="/assets/images/e-learn logo.png" alt=""
-												class="slide_logo mx-auto"></div>
-										<div class="home_text">
-											<div class="home_title">Complete Online Courses</div>
-											<div class="home_subtitle">Maecenas rutrum viverra sapien sed fermentum.
-												Morbi tempor odio eget lacus tempus pulvinar. Praesent vel nisl
-												fermentum, gravida augue ut, fermentum ipsum.</div>
-										</div>
-										<div class="home_buttons">
-											<div class="button home_button"><a href="#">learn more<div
-														class="button_arrow"><i class="fa fa-angle-right"
-															aria-hidden="true"></i></div></a></div>
-											<div class="button home_button"><a href="#">see all courses<div
-														class="button_arrow"><i class="fa fa-angle-right"
-															aria-hidden="true"></i></div></a></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				
 
 			</div>
 		</div>

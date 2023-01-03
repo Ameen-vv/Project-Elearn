@@ -39,6 +39,7 @@ router.get('/add-to-cart/:id',sessionControl.userSession,userBlock.userBlocked,u
 router.get('/delete-cart-item/:id',sessionControl.userSession,userBlock.userBlocked,userController.deleteCartItem)
 router.get('/checkout',userSession.userSession,userBlock.userBlocked,userController.checkout)
 router.get('/payment-success',userSession.userSession,(req,res)=>{res.render('user/paymentConfirm')})
+router.get('/aboutus',(req,res)=>{res.render('user/about')})
 router.get('/orders',userSession.userSession,userBlock.userBlocked,userController.viewOrders)
 router.get('/add-to-wishlist/:id',userSession.userSession,userController.addToWishlist)
 router.get('/wishlist',userSession.userSession,userBlock.userBlocked,userController.viewWishlist)

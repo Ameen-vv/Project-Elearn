@@ -1,5 +1,150 @@
-<%-include('../user/layout/user-head.ejs')%>
-<section class="vh-100 mt-5" style="background-color: #f4f5f7;">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Elearn</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Elearn project">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/homeview/styles/bootstrap4/bootstrap.min.css">
+  <link href="/homeview/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/homeview/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+  <link rel="stylesheet" type="text/css" href="/homeview/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+  <link rel="stylesheet" type="text/css" href="/homeview/plugins/OwlCarousel2-2.2.1/animate.css">
+  <link href="/homeview/plugins/video-js/video-js.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/homeview/styles/main_styles.css">
+  <link rel="stylesheet" type="text/css" href="/homeview/styles/responsive.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  <link rel="stylesheet" type="text/css" href="/homeview/styles/courses.css">
+  <link rel="stylesheet" type="text/css" href="/homeview/styles/courses_responsive.css">
+</head>
+
+<body>
+
+  <div class="super_container">
+
+    <!-- Header -->
+
+    <header class="header">
+
+      <!-- Top Bar -->
+
+
+
+      <!-- Header Content -->
+      <div class="header_container">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                <div class="logo_container">
+                  <a href="/">
+                    <div class="logo_content d-flex flex-row align-items-end justify-content-start">
+                      <div class="logo_img"><img src="/assets/images/e-learn logo.png" alt="" width="30" height="30">
+                      </div>
+                      <div class="logo_text my-auto">E learn</div>
+                    </div>
+                  </a>
+                </div>
+                <nav class="main_nav_contaner mx-auto">
+                  <ul class="main_nav">
+                    <li><a href="/" class="">home</a></li>
+                    <li class=""><a href="/viewproducts/1">courses</a></li>
+                    <li><a href="/aboutus" class="">about us</a></li>
+                    <li class="active"><a href="/profile">Profile</a></li>
+                    <li>
+                      <div class="my-auto"><a href="/cart"><i class="cart fa fa-shopping-cart"
+                            aria-hidden="true"></i></a></div>
+                    </li>
+                    <li>
+                      <div class="my-auto"><a href="/wishlist"><i class="cart fa fa-heart" aria-hidden="true"></i></a>
+                      </div>
+                    </li>
+                  </ul>
+
+
+              </div>
+            </div>
+
+
+            <!-- <div class="search_button my-auto"><i class="fa fa-search" aria-hidden="true"></i></div> -->
+
+            <!-- Hamburger -->
+
+            <div class="hamburger menu_mm my-auto">
+              <i class="fa fa-bars menu_mm " aria-hidden="true"></i>
+            </div>
+            </nav>
+
+          </div>
+        </div>
+      </div>
+  </div>
+  </div>
+
+  <!-- Header Search Panel -->
+  <div class="header_search_container">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="header_search_content d-flex flex-row align-items-center justify-content-end">
+            <form action="/search" class="header_search_form">
+              <input type="search" class="search_input" placeholder="Search" required="required" name="search">
+              <button class="header_search_button d-flex flex-column align-items-center justify-content-center">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </header>
+
+  <!-- Menu -->
+
+  <div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+    <div class="menu_close_container">
+      <div class="menu_close">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="search">
+      <form action="/search" class="header_search_form menu_mm" method="post">
+        <input type="search" class="search_input menu_mm " placeholder="Search" required="required" name="search">
+        <button class="header_search_button d-flex flex-column align-items-center justify-content-center menu_mm">
+          <i class="fa fa-search menu_mm" aria-hidden="true"></i>
+        </button>
+      </form>
+    </div>
+    <nav class="menu_nav">
+      <ul class="menu_mm">
+        <li class="menu_mm"><a href="/">Home</a></li>
+        <li class="menu_mm"><a href="/viewproducts/1">Courses</a></li>
+        <!-- <li class="menu_mm"><a href="instructors.html">Instructors</a></li>
+				<li class="menu_mm"><a href="#">Events</a></li> -->
+        <!-- <li class="menu_mm"><a href="blog.html">Blog</a></li> -->
+        <li class="menu_mm"><a href="/profile">Profile</a></li>
+        <li class="menu_mm"><a href="/cart">My cart</a></li>
+        <li class="menu_mm"><a href="/wishlist">My wishlist</a></li>
+      </ul>
+    </nav>
+    <div class="menu_extra">
+      <div class="menu_phone"><span class="menu_title">phone:675565354342</span></div>
+      <div class="menu_social">
+        <span class="menu_title">follow us</span>
+        <ul>
+          <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <section class="vh-100 mt-5" style="background-color: #f4f5f7;">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col col-lg-6 mb-4 mb-lg-0">
@@ -8,17 +153,22 @@
               <div class="col-md-4 gradient-custom text-center text-white"
                 style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
                 <%if(profilePic){%>
-                  <img src='/assets/images/thumbnails/<%=profilePic%>'
-                  alt="Avatar" class="img-fluid mt-5" style="width: 80px; height: 80px;" />
-                <%}else{%>
-                  <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-                  alt="Avatar" class="img-fluid mt-5" style="width: 80px; height: 80px;" />  
-                <%}%>
-                
-                  <a onclick="changeProfile()" style="display: block;font-size: 10px;" class="mt-3 text-primary" id="changeButton">change profile</a>
-                  <form action="/profile-pic" method="post" enctype="multipart/form-data" style="display: none;" id="picForm" class="mt-3"><input type="file" name="image" class="form-control" placeholder="select a image"> <button type="submit" class="mt-3" >submit</button></form>
-                <h5 class="mt-3"><%=userName%></h5>
-                <i class="far fa-edit mb-5"></i>
+                  <img src='/assets/images/thumbnails/<%=profilePic%>' alt="Avatar" class="img-fluid mt-5"
+                    style="width: 80px; height: 80px;" />
+                  <%}else{%>
+                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                      alt="Avatar" class="img-fluid mt-5" style="width: 80px; height: 80px;" />
+                    <%}%>
+
+                      <a onclick="changeProfile()" style="display: block;font-size: 10px;" class="mt-3 text-primary"
+                        id="changeButton">change profile</a>
+                      <form action="/profile-pic" method="post" enctype="multipart/form-data" style="display: none;"
+                        id="picForm" class="mt-3"><input type="file" name="image" class="form-control"
+                          placeholder="select a image"> <button type="submit" class="mt-3">submit</button></form>
+                      <h5 class="mt-3">
+                        <%=userName%>
+                      </h5>
+                      <i class="far fa-edit mb-5"></i>
               </div>
               <div class="col-md-8">
                 <div class="card-body p-4">
@@ -27,23 +177,29 @@
                   <div class="row pt-1">
                     <div class="col-6 mb-3">
                       <h6>Email</h6>
-                      <p class="text-muted"><%=userDetails.email%></p>
+                      <p class="text-muted">
+                        <%=userDetails.email%>
+                      </p>
                     </div>
                     <div class="col-6 mb-3">
                       <h6>Phone</h6>
-                      <p class="text-muted"><%=userDetails.phone%></p>
+                      <p class="text-muted">
+                        <%=userDetails.phone%>
+                      </p>
                     </div>
                   </div>
                   <h6>Dashboard</h6>
                   <hr class="mt-0 mb-4">
                   <div class="row pt-1">
                     <div class="col-6 mb-3">
-                      <h6>My courses</h6>
-                      <a class="text-muted" href="/mycourses"><%=courseNo%> course</a>
+                      <a href="/mycourses"><h6 class="">My courses</h6></a>
+                      <a class="text-primary"  href="/mycourses">
+                        <%=courseNo%> course
+                      </a>
                     </div>
                     <div class="col-6 mb-3">
                       <h6>My Orders</h6>
-                        <a class="text-muted" href="/orders">Click Here to view</a>
+                      <a class="text-primary"  href="/orders">Click Here to view</a>
                     </div>
                   </div>
                   <hr>
