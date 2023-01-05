@@ -264,7 +264,11 @@ function buyNow(proId){
         method:'get',
         success:(response)=>{
             if(response.status){
+                console.log('success');
                location.href='/cart'
+            }else{
+                console.log('failed');
+                location.href='/cart'
             }
             
         }
