@@ -258,4 +258,16 @@ function changeProfile(){
 //         }
 //     })
 // })
+function buyNow(proId){
+    $.ajax({
+        url:'/add-to-cart/'+proId,
+        method:'get',
+        success:(response)=>{
+            if(response.status){
+               location.href='/cart'
+            }
+            
+        }
+    })
+}
 
