@@ -28,8 +28,8 @@ module.exports={
     },
     signIn:(req,res)=>{
         const admins={
-            email:'ameen@gmail.com',
-            password:"1234"
+            email:process.env.ADMIN_EMAIL, //ameen@gmail.com
+            password:process.env.ADMIN_PASS          //1234
         
         }
         if(req.body.email==admins.email && req.body.password==admins.password){

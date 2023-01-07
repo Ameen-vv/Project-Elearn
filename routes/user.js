@@ -55,9 +55,6 @@ router.get('/playVideo/:id/:video',userSession.userSession,userBlock.userBlocked
 router.get('/logout',userController.logOut)
 
 
-
-
-
 //-----------------------POST----------------------------------------
 
 router.post('/verifyotp',userController.verifyOtp)
