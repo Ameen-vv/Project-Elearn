@@ -4,7 +4,6 @@ const userModel= require('../model/userSchema')
 module.exports={
     userBlocked:async(req,res,next)=>{
         let id = req.session.userId
-        console.log(id)
         if(id){
             let user = await userModel.findById({_id:id})
             if(user.block){
@@ -12,9 +11,11 @@ module.exports={
                 res.redirect('/')
 
             }else{
+                console.log('test')
                 next()
             }
         }else{
+            console.log('tes2')
             next()
         }
 

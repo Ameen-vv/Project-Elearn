@@ -85,8 +85,10 @@ module.exports = {
         res.redirect('/')
     },
     homeView: async (req, res) => {
+       try{
         let logged = req.session.loggedIn
         let products = await productModel.find()
+        console.log( 'pro',products)
         let latestProducts = await productModel.find().sort({date:-1}).limit(4)
         let cartCount = null
         if (req.session.loggedIn) {
@@ -95,6 +97,10 @@ module.exports = {
         productHelper.getProductCount().then((Counts)=>{
             res.render('user/user', { logged, products, cartCount ,latestProducts,Counts})
         })
+       }
+       catch(err){
+        console.log(err)
+       }
         
 
         
