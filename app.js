@@ -8,7 +8,7 @@ const db = require('./config/connection')
 const multer = require('multer')
 const session = require('express-session')
 require('dotenv').config()
-
+const PORT = process.env.PORT || 3030
 //-------routes-----------------------------------------------------------------
 const userRouter = require('./routes/user')
 const adminRouter = require('./routes/admin')
@@ -78,6 +78,6 @@ app.use(function(req, res, next) {
 
 
 
-app.listen(2000,()=>{
-    console.log('server connected on port 2000');
+app.listen(PORT,()=>{
+    console.log(`connected on port ${PORT}`);
 })
